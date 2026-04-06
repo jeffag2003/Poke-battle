@@ -28,15 +28,15 @@ export function renderPokemon(pokemon, container, isPlayer = false) {
     }
 
 
-    let htmlMovimientos = ""; 
+    let htmlMoves = ""; 
     for (const mov of pokemon.moves) {
-        htmlMovimientos = htmlMovimientos + "<li>" + mov + "</li>";
+        htmlMoves = htmlMoves + "<li>" + mov + "</li>";
     }
 
-    let htmlTipos = "";
+    let htmlTypes = "";
     for (let i = 0; i < pokemon.types.length; i++) {
         let nombreDelTipo = pokemon.types[i];
-        htmlTipos = htmlTipos + '<span class="type-tag">' + nombreDelTipo + '</span>';
+        htmlTypes = htmlTypes + '<span class="type-tag">' + nombreDelTipo + '</span>';
     }
 
     container.innerHTML = `
@@ -44,7 +44,7 @@ export function renderPokemon(pokemon, container, isPlayer = false) {
             <img src="${pokemon.sprite}" alt="${pokemon.name}">
             <h2 class="poke-name">${pokemon.name.toUpperCase()}</h2>
             <div class="types-container">
-                ${htmlTipos}
+                ${htmlTypes}
             </div>
             <div class="stats-grid">
                 <p><strong>HP:</strong> ${pokemon.stats.hp}</p>
@@ -55,7 +55,7 @@ export function renderPokemon(pokemon, container, isPlayer = false) {
             <div class="moves-section">
                 <h3>Movimientos:</h3>
                 <ul class="moves-list">
-                    ${htmlMovimientos}
+                    ${htmlMoves}
                 </ul>
             </div>
         </div>

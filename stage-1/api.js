@@ -33,10 +33,10 @@ for (let i = 0; i < data.stats.length; i++) {
 let mimikyuMovimientos = [];
 for (let i = 0; i < movesDetails.length; i++) {
     let resultado = movesDetails[i];
-    
     if (resultado.status === 'fulfilled') {
         mimikyuMovimientos.push(resultado.value.name);
-    } else {
+    } 
+    else {
         mimikyuMovimientos.push('Desconocido');
     }
 }
