@@ -3,7 +3,8 @@ const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
 export async function fetchPokemonData(nameOrId, signal) {
     try {
         const response = await fetch(`${BASE_URL}/${nameOrId.toLowerCase()}`, { signal });
-        if (!response.ok) throw new Error('Pokémon no encontrado');
+        if (!response.ok) 
+        throw new Error('Pokémon no encontrado');
         const data = await response.json();
         
 

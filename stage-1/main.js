@@ -6,14 +6,17 @@ const trainerContainer = document.getElementById('trainer-section');
 const playerContainer = document.getElementById('player-pokemon');
 const opponentContainer = document.getElementById('opponent-pokemon');
 const searchInput = document.getElementById('opponent-search');
+const goBtn = document.getElementById('go-to-battle');
+let myPokemonData = null;
+let opponentPokemonData = null;
 
 async function main() {
 try {
         renderTrainerCard(TRAINER, trainerContainer); 
         renderPokemon(null, playerContainer, true);
-        const myPokemon = await fetchPokemonData(TRAINER.favoritePokemon);
-       
+        const myPokemon = await fetchPokemonData(TRAINER.favoritePokemon);   
         if (myPokemon) {
+            myPokemonData = myPokemon;
             renderPokemon(myPokemon, playerContainer, true);
         }
     } 
@@ -30,6 +33,8 @@ searchInput.addEventListener('input', (event) => {
     
     if (!pokemonName) {
         opponentContainer.innerHTML = '<p>Esperando oponente...</p>';
+        opponentPokemonData = null; 
+        goBtn.disabled = true; 
         return;
     }
     
@@ -42,18 +47,32 @@ searchInput.addEventListener('input', (event) => {
             const opponent = await fetchPokemonData(pokemonName, controller.signal);
             
             if (opponent) {
+                opponentPokemonData = opponent;
                 renderPokemon(opponent, opponentContainer);
+                
+                if (myPokemonData) { 
+                    goBtn.disabled = false;
+                }
             } 
             else {
                 opponentContainer.innerHTML = '<p>¡Pokémon no encontrado!</p>';
+                goBtn.disabled = true
             }
         } 
         catch (error) {
             if (error.name === 'AbortError') 
-        return;
+            return;
         }
     }, 500);
 });
 
+goBtn.addEventListener('click', () => {
+    if (myPokemonData && opponentPokemonData) {
+        localStorage.setItem('playerPokemon', JSON.stringify(myPokemonData));
+        localStorage.setItem('opponentPokemon', JSON.stringify(opponentPokemonData));
+        localStorage.setItem('trainerData', JSON.stringify(TRAINER));
+        window.location.href = './stage-2/index.html';
+    }
+});
 
 main();
