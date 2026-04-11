@@ -63,7 +63,7 @@ export function render(state) {
                             '<div id="cd-progress" class="cd-fill"></div>' +
                         '</div>' +
                     '</div>' +
-                    '<button id="def-btn" ' + (state.definitiveUsed || state.phase === "ended" ? "disabled" : "") + '>ULTIMATE</button>' +
+                    '<button id="def-btn" ' + (state.definitiveUsed || state.phase === "ended" ? "disabled" : "") + '>Sombra Maldita</button>' +
                 '</div>' +
                 (state.phase === "ended" ? 
                     '<div class="reiniciar-box">' +
