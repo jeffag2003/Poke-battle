@@ -15,13 +15,16 @@ export const state = {
     
 };
 
+export const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 export function calcPlayerDamage(pokemon) {
-    const movePower = pokemon.power || 60; 
-    const damage = Math.floor( movePower * 0.3 ) + Math.floor( Math.random() * movePower * 0.4 )
+    const movePower = 60; 
+    const damage = Math.floor(movePower * 0.3) + Math.floor(Math.random() * movePower * 0.4);
     return damage;
 }
+
 export function calcEnemyDamage(opponent) {
     const attackStat = opponent.stats.attack;
-    const damage = Math.floor( attackStat * 0.4 ) + Math.floor( Math.random() * 20 )
+    const damage = Math.floor(attackStat * 0.4) + Math.floor(Math.random() * 20);
     return damage;
 }

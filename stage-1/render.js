@@ -33,9 +33,11 @@ export function renderPokemon(pokemon, container, isPlayer = false) {
         htmlMoves = htmlMoves + "<li>" + pokemon.moves[i] + "</li>";
     }
 
-    let htmlTypes = "";{
-        htmlTypes = htmlTypes + '<span class="type-tag">' + nombreDelTipo + '</span>';
-    }
+    let htmlTypes = "";
+        for (let i = 0; i < pokemon.types.length; i++) {
+    let nombreDelTipo = pokemon.types[i];
+    htmlTypes = htmlTypes + '<span class="type-tag">' + nombreDelTipo + '</span>';
+}
 
     container.innerHTML = 
         '<div class="poke-card">' +
