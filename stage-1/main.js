@@ -71,7 +71,7 @@ goBtn.addEventListener('click', () => {
         localStorage.setItem('playerPokemon', JSON.stringify(myPokemonData));
         localStorage.setItem('opponentPokemon', JSON.stringify(opponentPokemonData));
         localStorage.setItem('trainerData', JSON.stringify(TRAINER));
-        window.location.href = './stage-2/index.html';
+        window.location.href = '../stage-2/index.html';
     }
 });
 

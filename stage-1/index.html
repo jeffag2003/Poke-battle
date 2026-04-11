@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Battle - Stage 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="trainer-section"></div>
+
+    <div class="selection-screen">
+        <div id="player-pokemon"></div>
+
+        <div class="search-container">
+            <input type="text" id="opponent-search" placeholder="Busca un oponente por nombre o ID...">
+            
+            <div id="opponent-pokemon">
+                <p>Esperando oponente...</p>
+            </div>
+
+            <button id="go-to-battle" disabled>¡A LA BATALLA!</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
